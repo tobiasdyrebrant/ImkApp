@@ -1785,6 +1785,7 @@
     <Service Include="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\" />
     <Folder Include="platforms\android\build\generated\assets\shaders\debug\" />
     <Folder Include="platforms\android\build\generated\res\resValues\" />
     <Folder Include="platforms\android\build\generated\res\rs\debug\" />
@@ -1825,5 +1826,6 @@
     <Folder Include="platforms\android\CordovaLib\build\intermediates\transforms\mergeJniLibs\debug\" />
     <Folder Include="platforms\android\CordovaLib\build\tmp\compileDebugJavaWithJavac\" />
     <Folder Include="platforms\android\libs\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
 </Project>

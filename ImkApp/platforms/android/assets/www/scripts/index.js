@@ -31,10 +31,13 @@
 
         $('#login-submit').on("click", function (event) {
             event.preventDefault();
-
-            $("#login-div").animate({ width: 'toggle' }, 350, "linear", function () {
-                $('#choose-action-div').animate({ width: 'toggle' }, 350, "linear");
+            $("#login-div").hide("slide", { direction: "right" }, 350, function () {
+                $('#choose-action-div').show("slide", { direction: "left" }, 350);
             });
+
+            //$("#login-div").animate({ width: 'toggle' }, 350, "linear", function () {
+            //    $('#choose-action-div').animate({ width: 'toggle' }, 350, "linear");
+            //});
             
         });
 
