@@ -18,6 +18,19 @@
         var receivedElement = parentElement.querySelector('.received');
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
+
+
+        $('#test').on("click", function () {
+            console.log(navigator.camera);
+            navigator.camera.getPicture(function () {
+                console.log("success");
+            }, function () {
+                console.log("failed");
+            });
+        })
+
+        
+
     };
 
     function onPause() {
@@ -27,4 +40,6 @@
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
     };
+
+
 } )();
