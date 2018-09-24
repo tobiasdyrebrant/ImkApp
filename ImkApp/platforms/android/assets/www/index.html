@@ -21,14 +21,19 @@
             <form class="col-12" id="login-form">
                 <div class="form-group">
                     <label for="login-name">Namn</label>
-                    <input type="text" class="form-control" id="login-name" placeholder="Skriv användarnamn">
+                    <input type="text" class="form-control" id="login-name" name="login-name" placeholder="Skriv användarnamn" value="patrik.wanche@gmail.com">
                 </div>
                 <div class="form-group">
                     <label for="login-password">Lösenord</label>
-                    <input type="password" class="form-control" id="login-password" placeholder="Skriv lösenord">
+                    <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Skriv lösenord" value=";yJL%HvlZ}">
                 </div>
                 <div class="form-group">
                     <button id="login-submit" style="width: 100%" class="btn btn-success">Logga in</button>
+                </div>
+            </form>
+            <form class="col-12">
+                <div class="form-group">
+                    <button id="test-submit" style="width: 100%" class="btn btn-success">Test Hello!</button>
                 </div>
             </form>
         </div>
@@ -44,6 +49,11 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/other/js.cookie.js"></script>
+    <script type="text/javascript" src="scripts/other/modernizr-custom-3.4.0.js"></script>
+    <script type="text/javascript" src="scripts/utils.js"></script>
+    <script type="text/javascript" src="scripts/auth.js"></script>
+    <script type="text/javascript" src="scripts/api.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
     <script type="text/javascript" src="scripts/jquery/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="scripts/jquery/jquery-ui-1.12.1.min.js"></script>
