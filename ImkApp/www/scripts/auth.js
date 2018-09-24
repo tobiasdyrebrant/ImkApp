@@ -16,8 +16,8 @@ App.Auth = {
             function (data) {               
                 if (data['access_token']) {
                     App.Auth.SetAuthToken(data['access_token']);
-                    if (data['refresh_token']) { App.Utils.SetLocal('refreshToken', data['refresh_token'], true); }
-                    else { App.Utils.RemoveLocal('refreshToken'); }
+                    if (data['refresh_token']) { App.Utils.SetLocal('refresh_token', data['refresh_token'], true); }
+                    else { App.Utils.RemoveLocal('refresh_token'); }
                     //TODO
                     //Get user information?
 
@@ -79,7 +79,7 @@ App.Auth = {
                 App.Auth.__buffering = true;
                 App.Auth.__callBackBuffer.push(callback);
                 //try get by refreshtoken                                
-                var rt = App.Utils.GetLocal('refreshToken', true);
+                var rt = App.Utils.GetLocal('refresh_token', true);
                 if (rt) {
                     var tokenData = $.param({
                         grant_type: 'refresh_token',
@@ -92,20 +92,20 @@ App.Auth = {
                         function (data) {
                             if (data['access_token']) {
                                 App.Auth.SetAuthToken(data['access_token']);
-                                App.Utils.SetLocal('refreshToken', data['refresh_token'], true);
+                                App.Utils.SetLocal('refresh_token', data['refresh_token'], true);
                                 App.Auth.__buffering = false;
                                 while (App.Auth.__callBackBuffer.length) {
                                     App.Auth.__callBackBuffer.shift()(data['access_token']);
                                 }
                             } else {
-                                App.Utils.RemoveLocal('refreshToken'); //Token not valid
+                                App.Utils.RemoveLocal('refresh_token'); //Token not valid
                                 App.Auth.__buffering = false;
                                 while (App.Auth.__callBackBuffer.length) {
                                     App.Auth.__callBackBuffer.shift()();
                                 }
                             }
                         }, function (error) {
-                            App.Utils.RemoveLocal('refreshToken'); //Token not valid
+                            App.Utils.RemoveLocal('refresh_token'); //Token not valid
                             App.Auth.__buffering = false;
                             while (App.Auth.__callBackBuffer.length) {
                                 App.Auth.__callBackBuffer.shift()();
