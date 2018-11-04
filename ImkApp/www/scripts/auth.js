@@ -13,7 +13,7 @@ App.Auth = {
         };        
         App.Api.MakeParamPost('oauth/token',
             loginData,
-            function (data) {               
+            function (data) {                    
                 if (data['access_token']) {
                     App.Auth.SetAuthToken(data['access_token']);
                     if (data['refresh_token']) { App.Utils.SetLocal('refresh_token', data['refresh_token'], true); }
@@ -41,6 +41,8 @@ App.Auth = {
                     //    onSuccess(userData);
                     //});
                 }
+
+                onSuccess();
             },
             onError
         );

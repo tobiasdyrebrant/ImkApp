@@ -16,7 +16,9 @@
     <title>ImkApp</title>
 </head>
 <body>
-    <div class="container h-100" id="login-div">
+
+    <!-- Login div -->
+    <div class="container h-100" id="login-div" style="display: none">
         <div class="row h-100 justify-content-center align-items-center">
             <form class="col-12" id="login-form">
                 <div class="form-group">
@@ -25,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="login-password">Lösenord</label>
-                    <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Skriv lösenord" value=";yJL%HvlZ}">
+                    <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Skriv lösenord" value="5ReSOr0*Ho">
                 </div>
                 <div class="form-group">
                     <button id="login-submit" style="width: 100%" class="btn btn-success">Logga in</button>
@@ -38,13 +40,89 @@
             </form>
         </div>
     </div>
+    
+    <!-- Choose action div -->
     <div class="container h-100" id="choose-action-div" style="display: none">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-12">
-                <button style="width: 100%; margin-bottom:15px" class="btn btn-success">Lägg till i kalender</button>
-                <button style="width: 100%" class="btn btn-success">Lägg upp blogginlägg</button>
+                <button style="width: 100%; margin-bottom:15px" class="btn btn-success" id="create-event-button">Lägg till i kalender</button>
+                <button style="width: 100%" class="btn btn-success" id="create-post-button">Lägg upp blogginlägg</button>
             </div>
         </div>
+    </div>
+
+    <!-- Blogs div -->
+    <div class="container h-100" id="blog-div">
+        <div class="row h-100 justify-content-center align-items-center">
+            <form class="col-12" id="blog-form">
+                <div class="form-group" data-value-element="blog-heading">
+                    <label for="blog-heading">Rubrik</label>
+                    <input type="text" class="form-control" id="blog-heading" name="blog-heading" placeholder="Skriv rubrik" value="Test av rubrik">
+                </div>
+                <div class="form-group" style="display: none" data-value-element="blog-color">
+                    <label for="blog-color">Bakgrundsfärg</label>
+                    <select class="form-control" id="blog-color" name="blog-color">
+                        <option value="" disabled selected>Välj bakgrundsfärg</option>
+                        <option style="background-color:red" value="red" selected>Röd</option>
+                        <option style="background-color:pink" value="pink">Rosa</option>
+                        <option style="background-color:yellow" value="yellow">Gul</option>
+                        <option style="background-color:blue" value="blue">Blå</option>
+                        <option style="background-color:green" value="green">Grön</option>
+                        <option style="background-color:grey" value="grey">Grå</option>
+                        <option style="background-color:turquoise" value="turquoise">Turkos</option>
+                    </select>                    
+                </div>
+                <div class="form-group" style="display: none" data-value-element="blog-category">
+                    <label for="blog-category">Kategori</label>
+                    <select class="form-control" id="blog-category" name="blog-category">
+                        <option value="" disabled>Välj kategori</option>
+                        <option value="Församling" selected>Församling</option>
+                        <option value="Flyttafrågan">Flyttafrågan</option>
+                        <option value="Internationellt">Internationellt</option>
+                        <option value="Socialt arbete">Socialt arbete</option>
+                    </select>
+                </div>
+                <div class="form-group" style="display: none" data-value-element="blog-preamble">
+                    <label for="blog-preamble">Ingress</label>
+                    <textarea type="text" class="form-control" id="blog-preamble" name="blog-preamble" placeholder="Skriv ingress" rows="2">Test av ingress</textarea>
+                </div>
+                <div class="form-group" style="display: none" data-value-element="blog-text"  data-second-last="true">
+                    <label for="blog-text">Text</label>
+                    <textarea type="text" class="form-control" id="blog-text" name="blog-text" placeholder="Skriv text" rows="4">Test av text</textarea>
+                </div>
+
+                <div class="form-group" style="display: none" data-value-element="blog-camera">
+                    <label for="blog-camera">Bild</label>
+                    <div>
+                        <button type="button" style="float: left; width: 50%" class="btn btn-success" id="blog-camera-get-existing-button">Hämta existerande</button>
+                        <button type="button" style="width: 50%;" class="btn btn-success" id="blog-camera-take-new-button">Ta ny bild</button>
+                    </div>
+
+                    <input type="text" class="form-control" id="blog-camera" name="blog-camera" placeholder="Skriv rubrik" value="C:\\Users\\Tobias\\Pictures\\tavla.jpg">                    
+                </div>
+
+                <button type="button" style="width: 100%" class="btn btn-success" id="blog-next-button">Nästa</button>
+                <button type="button" style="width: 100%;" class="btn btn-success" id="blog-submit-button">Slutför</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Events div -->
+    <div class="container h-100" id="event-div" style="display: none">
+        <form class="col-12" id="event-form">
+            <!--<div class="form-group">
+                <label for="login-name">Namn</label>
+                <input type="text" class="form-control" id="login-name" name="login-name" placeholder="Skriv användarnamn" value="patrik.wanche@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Lösenord</label>
+                <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Skriv lösenord" value=";yJL%HvlZ}">
+            </div>
+            <div class="form-group">
+                <button id="login-submit" style="width: 100%" class="btn btn-success">Logga in</button>
+            </div>-->
+        </form>
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -55,6 +133,7 @@
     <script type="text/javascript" src="scripts/auth.js"></script>
     <script type="text/javascript" src="scripts/api.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/persist.js"></script>
     <script type="text/javascript" src="scripts/jquery/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="scripts/jquery/jquery-ui-1.12.1.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap/bootstrap.min.js"></script>

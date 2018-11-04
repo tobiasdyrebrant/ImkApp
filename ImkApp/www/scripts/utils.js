@@ -93,4 +93,8 @@ App.Utils = {
 
         return o;
     },
+    HandleUnauthorized: function () {
+        $('.container').hide();
+        $("#login-div").show();        
+    }
 }

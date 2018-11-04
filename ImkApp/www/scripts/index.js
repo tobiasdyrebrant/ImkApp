@@ -20,20 +20,27 @@
         //receivedElement.setAttribute('style', 'display:block;');
 
 
-        //$('#test').on("click", function () {
-        //    console.log(navigator.camera);
-        //    navigator.camera.getPicture(function () {
-        //        console.log("success");
-        //    }, function () {
-        //        console.log("failed");
-        //    });
-        //})
+        //TODO
+        //Enable when finished
+        //App.Auth.GetAuthTokenPromise(function (token) {
+        //    if (token != "" && token != undefined){
+        //        $('#choose-action-div').show();
+        //    }
+        //    else {                
+        //        $("#login-div").show();
+        //    }
+        //});
+
+        //TODO
+        //REMOVE
+        $("#blog-form .form-group").show()
 
         $('#login-submit').on("click", function (event) {
-            event.preventDefault();
-       
-            App.Auth.Login($('#login-form'), function (msg) {
-                console.log(msg);
+            event.preventDefault();            
+            App.Auth.Login($('#login-form'), function (msg) {                
+                $("#login-div").animate({ width: 'toggle' }, 350, "linear", function () {
+                    $('#choose-action-div').animate({ width: 'toggle' }, 350, "linear");
+                });
             }, function (msg) {
                 console.log(msg);
             });
@@ -51,7 +58,91 @@
             })
         });
 
-        
+        $('#create-post-button').on("click", function () {
+            $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
+                $('#post-div').animate({ width: 'toggle' }, 350, "linear");
+            });
+        });
+
+        $('#create-event-button').on("click", function () {
+            $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
+                $('#event-div').animate({ width: 'toggle' }, 350, "linear");
+            });
+        });
+
+
+
+        $('#blog-camera-get-existing-button').on("click", function () {
+
+            var options = {
+
+                destinationType: Camera.DestinationType.DATA_URL,
+
+            }     
+            navigator.camera.getPicture(function (imageUri) {
+                $('#blog-camera').val(imageUri);
+                console.log(imageUri);
+            }, function () {
+                //TODO
+                //Do something?
+                console.log("failed");
+                }, options);
+
+        });
+
+        $('#blog-camera-take-new-button').on("click", function () {    
+            var options = {
+                // Some common settings are 20, 50, and 100
+                quality: 50,
+                destinationType: Camera.DestinationType.FILE_URI,
+                // In this app, dynamically set the picture source, Camera or photo gallery
+                sourceType: Camera.PictureSourceType.CAMERA,
+                encodingType: Camera.EncodingType.JPEG,
+                mediaType: Camera.MediaType.PICTURE,
+                allowEdit: true,
+                correctOrientation: true  //Corrects Android orientation quirks
+            }            
+
+            navigator.camera.getPicture(function cameraSuccess(imageUri) {
+                $('#blog-camera').val(imageUri);   
+
+            }, function cameraError(error) {
+                console.log("Unable to obtain picture: " + error, "app");
+
+            }, options);
+        });
+
+
+        var lockNextClick = false;
+        $('#blog-next-button').on("click", function (event) {
+            event.preventDefault();
+            if (!lockNextClick) {
+                lockNextClick = true;
+
+                var visibleElement = $('#blog-form').find("div:visible");        
+                
+                if (visibleElement.data("second-last") == true) {                    
+                    $("#blog-next-button").animate({ width: 'toggle' }, 350, "linear", function () {
+                        $("#blog-submit-button").animate({ width: 'toggle' }, 350, "linear", function () {
+                            lockNextClick = false;
+                        });
+                    });
+                }
+
+                var nextElement = visibleElement.next();
+
+                visibleElement.animate({ width: 'toggle' }, 350, "linear", function () {
+                    nextElement.animate({ width: 'toggle' }, 350, "linear", function () {
+                        lockNextClick = false;
+                    });
+                });                
+            }
+        });       
+
+        $('#blog-submit-button').on("click", function (event) {
+            event.preventDefault();      
+            App.Persist.Blog(App.Utils.SerializeForm($("#blog-form")));
+        })        
 
     };
 
