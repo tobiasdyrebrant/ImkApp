@@ -33,7 +33,8 @@
 
         //TODO
         //REMOVE
-        $("#blog-form .form-group").show()
+        //$("#blog-form .form-group").show()
+        //$("#blog-submit-button").show()
 
         $('#login-submit').on("click", function (event) {
             event.preventDefault();            
@@ -73,20 +74,16 @@
 
 
         $('#blog-camera-get-existing-button').on("click", function () {
-
             var options = {
-
                 destinationType: Camera.DestinationType.DATA_URL,
-
             }     
+
             navigator.camera.getPicture(function (imageUri) {
-                $('#blog-camera').val(imageUri);
-                console.log(imageUri);
+                $('#blog-camera').val(imageUri);                
             }, function () {
                 //TODO
-                //Do something?
-                console.log("failed");
-                }, options);
+                //Do something?                
+            }, options);
 
         });
 
@@ -94,7 +91,7 @@
             var options = {
                 // Some common settings are 20, 50, and 100
                 quality: 50,
-                destinationType: Camera.DestinationType.FILE_URI,
+                destinationType: Camera.DestinationType.DATA_URL,
                 // In this app, dynamically set the picture source, Camera or photo gallery
                 sourceType: Camera.PictureSourceType.CAMERA,
                 encodingType: Camera.EncodingType.JPEG,
@@ -120,22 +117,30 @@
                 lockNextClick = true;
 
                 var visibleElement = $('#blog-form').find("div:visible");        
-                
-                if (visibleElement.data("second-last") == true) {                    
-                    $("#blog-next-button").animate({ width: 'toggle' }, 350, "linear", function () {
-                        $("#blog-submit-button").animate({ width: 'toggle' }, 350, "linear", function () {
+
+                var value = $("#" + $(visibleElement[0]).data("value-element")).val();                
+                if (value == undefined || value == "") {
+                    lockNextClick = false;
+                    $(visibleElement[0]).find(".errorLabel").show()
+                }
+                else {
+                    $(".errorLabel").hide();
+                    if (visibleElement.data("second-last") == true) {
+                        $("#blog-next-button").animate({ width: 'toggle' }, 350, "linear", function () {
+                            $("#blog-submit-button").animate({ width: 'toggle' }, 350, "linear", function () {
+                                lockNextClick = false;
+                            });
+                        });
+                    }
+
+                    var nextElement = visibleElement.next();
+
+                    visibleElement.animate({ width: 'toggle' }, 350, "linear", function () {
+                        nextElement.animate({ width: 'toggle' }, 350, "linear", function () {
                             lockNextClick = false;
                         });
                     });
                 }
-
-                var nextElement = visibleElement.next();
-
-                visibleElement.animate({ width: 'toggle' }, 350, "linear", function () {
-                    nextElement.animate({ width: 'toggle' }, 350, "linear", function () {
-                        lockNextClick = false;
-                    });
-                });                
             }
         });       
 

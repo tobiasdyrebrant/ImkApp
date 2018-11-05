@@ -2,7 +2,7 @@
 App.Persist = {
     Blog: function (serializedForm) {
         var form = new FormData();
-        form.append("", serializedForm["blog-camera"]);
+        form.append("", App.Utils.DataURItoBlob(serializedForm["blog-camera"]), App.Utils.GenerateRandomString() + ".jpeg");
         form.append("Heading", serializedForm["blog-heading"]);
         form.append("Color", serializedForm["blog-color"]);
         form.append("Category", serializedForm["blog-category"]);

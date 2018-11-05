@@ -58,6 +58,7 @@
                 <div class="form-group" data-value-element="blog-heading">
                     <label for="blog-heading">Rubrik</label>
                     <input type="text" class="form-control" id="blog-heading" name="blog-heading" placeholder="Skriv rubrik" value="Test av rubrik">
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                 </div>
                 <div class="form-group" style="display: none" data-value-element="blog-color">
                     <label for="blog-color">Bakgrundsfärg</label>
@@ -70,7 +71,8 @@
                         <option style="background-color:green" value="green">Grön</option>
                         <option style="background-color:grey" value="grey">Grå</option>
                         <option style="background-color:turquoise" value="turquoise">Turkos</option>
-                    </select>                    
+                    </select>
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                 </div>
                 <div class="form-group" style="display: none" data-value-element="blog-category">
                     <label for="blog-category">Kategori</label>
@@ -81,14 +83,17 @@
                         <option value="Internationellt">Internationellt</option>
                         <option value="Socialt arbete">Socialt arbete</option>
                     </select>
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                 </div>
                 <div class="form-group" style="display: none" data-value-element="blog-preamble">
                     <label for="blog-preamble">Ingress</label>
                     <textarea type="text" class="form-control" id="blog-preamble" name="blog-preamble" placeholder="Skriv ingress" rows="2">Test av ingress</textarea>
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                 </div>
-                <div class="form-group" style="display: none" data-value-element="blog-text"  data-second-last="true">
+                <div class="form-group" style="display: none" data-value-element="blog-text" data-second-last="true">
                     <label for="blog-text">Text</label>
                     <textarea type="text" class="form-control" id="blog-text" name="blog-text" placeholder="Skriv text" rows="4">Test av text</textarea>
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                 </div>
 
                 <div class="form-group" style="display: none" data-value-element="blog-camera">
@@ -98,11 +103,12 @@
                         <button type="button" style="width: 50%;" class="btn btn-success" id="blog-camera-take-new-button">Ta ny bild</button>
                     </div>
 
-                    <input type="text" class="form-control" id="blog-camera" name="blog-camera" placeholder="Skriv rubrik" value="C:\\Users\\Tobias\\Pictures\\tavla.jpg">                    
+                    <input type="text" class="form-control" id="blog-camera" name="blog-camera" placeholder="Skriv rubrik" value="C:\\Users\\Tobias\\Pictures\\tavla.jpg">       
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                 </div>
 
                 <button type="button" style="width: 100%" class="btn btn-success" id="blog-next-button">Nästa</button>
-                <button type="button" style="width: 100%;" class="btn btn-success" id="blog-submit-button">Slutför</button>
+                <button type="button" style="width: 100%; display: none" class="btn btn-success" id="blog-submit-button">Slutför</button>
             </form>
         </div>
     </div>
