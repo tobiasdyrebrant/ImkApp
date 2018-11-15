@@ -23,6 +23,30 @@ App.Persist = {
         }, function (error) {
             console.log(error);
         }, options);
+    },
+    Event: function (serializedForm) {
+        var form = new FormData();
+        form.append("", App.Utils.DataURItoBlob(serializedForm["event-camera"]), App.Utils.GenerateRandomString() + ".jpeg");
+        form.append("Heading", serializedForm["event-heading"]);
+        form.append("Color", serializedForm["event-color"]);        
+        form.append("Text", serializedForm["event-text"]);
+        form.append("Preamble", serializedForm["event-preamble"]);
+        form.append("StartDate", serializedForm["event-startdate"]);
+
+        var options = {
+            "async": true,
+            "crossDomain": true,
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        };
+
+        App.Api.MakeAuthedRequest("umbraco/api/imkcontentapi/createevent", "POST", null, function () {
+            console.log("success woop woop");
+        }, function (error) {
+            console.log(error);
+        }, options);
 
 
     },
