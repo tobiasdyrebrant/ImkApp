@@ -22,14 +22,14 @@
 
         //TODO
         //Enable when finished
-        //App.Auth.GetAuthTokenPromise(function (token) {
-        //    if (token != "" && token != undefined){
-        //        $('#choose-action-div').show();
-        //    }
-        //    else {                
-        //        $("#login-div").show();
-        //    }
-        //});
+        App.Auth.GetAuthTokenPromise(function (token) {
+            if (token != "" && token != undefined){
+                $('#choose-action-div').show();
+            }
+            else {                
+                $("#login-div").show();
+            }
+        });
 
         //TODO
         //REMOVE

@@ -52,7 +52,7 @@
     </div>
 
     <!-- Blogs div -->
-    <div class="container h-100" id="blog-div">
+    <div class="container h-100" id="blog-div" style="display: none">
         <div class="row h-100 justify-content-center align-items-center">
             <form class="col-12" id="blog-form">
                 <div class="form-group" data-value-element="blog-heading">
@@ -116,19 +116,59 @@
 
     <!-- Events div -->
     <div class="container h-100" id="event-div" style="display: none">
-        <form class="col-12" id="event-form">
-            <!--<div class="form-group">
-                <label for="login-name">Namn</label>
-                <input type="text" class="form-control" id="login-name" name="login-name" placeholder="Skriv användarnamn" value="patrik.wanche@gmail.com">
-            </div>
-            <div class="form-group">
-                <label for="login-password">Lösenord</label>
-                <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Skriv lösenord" value=";yJL%HvlZ}">
-            </div>
-            <div class="form-group">
-                <button id="login-submit" style="width: 100%" class="btn btn-success">Logga in</button>
-            </div>-->
-        </form>
+        <div class="row h-100 justify-content-center align-items-center">
+            <form class="col-12" id="event-form">
+                <div class="form-group" data-value-element="event-heading">
+                    <label for="event-heading">Rubrik</label>
+                    <input type="text" class="form-control" id="event-heading" name="event-heading" placeholder="Skriv rubrik" value="Test av rubrik">
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
+                </div>
+                <div class="form-group" style="display: none" data-value-element="event-color">
+                    <label for="event-color">Bakgrundsfärg</label>
+                    <select class="form-control" id="event-color" name="event-color">
+                        <option value="" disabled selected>Välj bakgrundsfärg</option>
+                        <option style="background-color:red" value="red" selected>Röd</option>
+                        <option style="background-color:pink" value="pink">Rosa</option>
+                        <option style="background-color:yellow" value="yellow">Gul</option>
+                        <option style="background-color:blue" value="blue">Blå</option>
+                        <option style="background-color:green" value="green">Grön</option>
+                        <option style="background-color:grey" value="grey">Grå</option>
+                        <option style="background-color:turquoise" value="turquoise">Turkos</option>
+                    </select>
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
+                </div>
+                <div class="form-group" style="display: none" data-value-element="event-preamble">
+                    <label for="event-preamble">Ingress</label>
+                    <textarea type="text" class="form-control" id="event-preamble" name="event-preamble" placeholder="Skriv ingress" rows="2">Test av ingress</textarea>
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
+                </div>
+                <div class="form-group" style="display: none" data-value-element="event-text">
+                    <label for="event-text">Text</label>
+                    <textarea type="text" class="form-control" id="event-text" name="event-text" placeholder="Skriv text" rows="4">Test av text</textarea>
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
+                </div>
+
+                <div class="form-group" style="display: none" data-value-element="event-startdate" data-second-last="true">
+                    <label for="event-startdate">Startdatum</label>
+                    <textarea type="text" class="form-control" id="event-startdate" name="event-startdate" placeholder="Skriv datum" rows="4">2018-10-11 05:50</textarea>
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
+                </div>
+
+                <div class="form-group" style="display: none" data-value-element="event-camera">
+                    <label for="event-camera">Bild</label>
+                    <div>
+                        <button type="button" style="float: left; width: 50%" class="btn btn-success" id="event-camera-get-existing-button">Hämta existerande</button>
+                        <button type="button" style="width: 50%;" class="btn btn-success" id="event-camera-take-new-button">Ta ny bild</button>
+                    </div>
+
+                    <input type="text" class="form-control" id="event-camera" name="event-camera" placeholder="Skriv rubrik" value="C:\\Users\\Tobias\\Pictures\\tavla.jpg">
+                    <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
+                </div>
+
+                <button type="button" style="width: 100%" class="btn btn-success" id="event-next-button">Nästa</button>
+                <button type="button" style="width: 100%; display: none" class="btn btn-success" id="event-submit-button">Slutför</button>
+            </form>
+        </div>
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>

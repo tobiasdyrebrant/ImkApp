@@ -22,14 +22,14 @@
 
         //TODO
         //Enable when finished
-        //App.Auth.GetAuthTokenPromise(function (token) {
-        //    if (token != "" && token != undefined){
-        //        $('#choose-action-div').show();
-        //    }
-        //    else {                
-        //        $("#login-div").show();
-        //    }
-        //});
+        App.Auth.GetAuthTokenPromise(function (token) {
+            if (token != "" && token != undefined){
+                $('#choose-action-div').show();
+            }
+            else {                
+                $("#login-div").show();
+            }
+        });
 
         //TODO
         //REMOVE
@@ -72,6 +72,7 @@
         });
 
 
+        //Blog-functionality
 
         $('#blog-camera-get-existing-button').on("click", function () {
             var options = {
@@ -109,18 +110,17 @@
             }, options);
         });
 
-
-        var lockNextClick = false;
+        var lockNextClickBlog = false;
         $('#blog-next-button').on("click", function (event) {
             event.preventDefault();
-            if (!lockNextClick) {
-                lockNextClick = true;
+            if (!lockNextClickBlog) {
+                lockNextClickBlog = true;
 
                 var visibleElement = $('#blog-form').find("div:visible");        
 
                 var value = $("#" + $(visibleElement[0]).data("value-element")).val();                
                 if (value == undefined || value == "") {
-                    lockNextClick = false;
+                    lockNextClickBlog = false;
                     $(visibleElement[0]).find(".errorLabel").show()
                 }
                 else {
@@ -128,7 +128,7 @@
                     if (visibleElement.data("second-last") == true) {
                         $("#blog-next-button").animate({ width: 'toggle' }, 350, "linear", function () {
                             $("#blog-submit-button").animate({ width: 'toggle' }, 350, "linear", function () {
-                                lockNextClick = false;
+                                lockNextClickBlog = false;
                             });
                         });
                     }
@@ -137,7 +137,7 @@
 
                     visibleElement.animate({ width: 'toggle' }, 350, "linear", function () {
                         nextElement.animate({ width: 'toggle' }, 350, "linear", function () {
-                            lockNextClick = false;
+                            lockNextClickBlog = false;
                         });
                     });
                 }
@@ -148,6 +148,87 @@
             event.preventDefault();      
             App.Persist.Blog(App.Utils.SerializeForm($("#blog-form")));
         })        
+
+
+        //Event-functionality
+
+        $('#event-camera-take-new-button').on("click", function () {
+            var options = {
+                // Some common settings are 20, 50, and 100
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL,
+                // In this app, dynamically set the picture source, Camera or photo gallery
+                sourceType: Camera.PictureSourceType.CAMERA,
+                encodingType: Camera.EncodingType.JPEG,
+                mediaType: Camera.MediaType.PICTURE,
+                allowEdit: true,
+                correctOrientation: true  //Corrects Android orientation quirks
+            }
+
+            navigator.camera.getPicture(function cameraSuccess(imageUri) {
+                $('#event-camera').val(imageUri);
+
+            }, function cameraError(error) {
+                console.log("Unable to obtain picture: " + error, "app");
+
+            }, options);
+        });
+
+        $('#event-camera-get-existing-button').on("click", function () {
+            var options = {
+                destinationType: Camera.DestinationType.DATA_URL,
+            }
+
+            navigator.camera.getPicture(function (imageUri) {
+                $('#event-camera').val(imageUri);
+            }, function () {
+                //TODO
+                //Do something?                
+            }, options);
+
+        });     
+
+
+        var lockNextClickEvent = false;
+        $('#event-next-button').on("click", function (event) {
+            event.preventDefault();
+            if (!lockNextClickEvent) {
+                lockNextClickEvent = true;
+
+                var visibleElement = $('#event-form').find("div:visible");
+
+                var value = $("#" + $(visibleElement[0]).data("value-element")).val();
+                if (value == undefined || value == "") {
+                    lockNextClickEvent = false;
+                    $(visibleElement[0]).find(".errorLabel").show()
+                }
+                else {
+                    $(".errorLabel").hide();
+                    if (visibleElement.data("second-last") == true) {
+                        $("#event-next-button").animate({ width: 'toggle' }, 350, "linear", function () {
+                            $("#event-submit-button").animate({ width: 'toggle' }, 350, "linear", function () {
+                                lockNextClickEvent = false;
+                            });
+                        });
+                    }
+
+                    var nextElement = visibleElement.next();
+
+                    visibleElement.animate({ width: 'toggle' }, 350, "linear", function () {
+                        nextElement.animate({ width: 'toggle' }, 350, "linear", function () {
+                            lockNextClickEvent = false;
+                        });
+                    });
+                }
+            }
+        });     
+
+
+        $('#event-submit-button').on("click", function (event) {
+            event.preventDefault();
+            App.Persist.Event(App.Utils.SerializeForm($("#event-form")));
+        })        
+
 
     };
 
