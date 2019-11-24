@@ -47,6 +47,11 @@ App.Auth = {
             onError
         );
     },
+    Logout: function () {
+        App.Utils.RemoveSession('imk_user');
+        App.Utils.RemoveLocal('refresh_token');
+        window.location.reload(true);
+    },
     SetAuthToken: function (token) {
         if (App.Utils.GetSession('imk_user') != undefined) {
             var bu = JSON.parse(App.Utils.GetSession('imk_user'));
@@ -59,6 +64,8 @@ App.Auth = {
             }
             App.Utils.SetSession('imk_user', JSON.stringify(imk_user), 86400);
         }
+
+        $('#logout-div').show();
     },
     GetAuthToken: function () {
         return App.Utils.GetSession('imk_user') != undefined

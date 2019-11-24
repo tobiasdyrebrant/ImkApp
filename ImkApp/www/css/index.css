@@ -22,9 +22,22 @@ body {
     overflow: auto;
 }
 
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
 .btn {
     background-color: #6d9da3 !important;
     border-color: #6d9da3 !important;
+    width: 100%;
 }
 
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {

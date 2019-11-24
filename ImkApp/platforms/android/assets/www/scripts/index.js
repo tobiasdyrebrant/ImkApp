@@ -25,10 +25,15 @@
         App.Auth.GetAuthTokenPromise(function (token) {
             if (token != "" && token != undefined){
                 $('#choose-action-div').show();
+                $('#logout-div').show();
             }
             else {                
                 $("#login-div").show();
             }
+        });
+
+        $('#logout').on("click", function() {
+            App.Auth.Logout();
         });
 
         //TODO
@@ -61,7 +66,7 @@
 
         $('#create-post-button').on("click", function () {
             $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
-                $('#post-div').animate({ width: 'toggle' }, 350, "linear");
+                $('#blog-div').animate({ width: 'toggle' }, 350, "linear");
             });
         });
 
@@ -121,7 +126,7 @@
                 var value = $("#" + $(visibleElement[0]).data("value-element")).val();                
                 if (value == undefined || value == "") {
                     lockNextClickBlog = false;
-                    $(visibleElement[0]).find(".errorLabel").show()
+                    $(visibleElement[0]).find(".errorLabel").show();
                 }
                 else {
                     $(".errorLabel").hide();
@@ -134,6 +139,9 @@
                     }
 
                     var nextElement = visibleElement.next();
+
+                    console.log(visibleElement);
+                    console.log(nextElement);
 
                     visibleElement.animate({ width: 'toggle' }, 350, "linear", function () {
                         nextElement.animate({ width: 'toggle' }, 350, "linear", function () {

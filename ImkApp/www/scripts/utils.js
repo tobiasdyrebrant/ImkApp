@@ -21,6 +21,9 @@ App.Utils = {
         domain ? Cookies.remove(key, { domain: domain }) : Cookies.remove(key);
         return true;
     },
+    RemoveSession: function(key, domain) {
+        return App.Utils.RemoveCookie(key, '/', domain);
+    },
     SetSession: function (key, value, end, domain) {
         App.Utils.RemoveCookie(key, '/', domain);
         App.Utils.SetCookie(key, value, end || 86400, '/', domain);
