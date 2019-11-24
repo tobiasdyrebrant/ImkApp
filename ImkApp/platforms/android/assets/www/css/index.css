@@ -13,7 +13,6 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    text-transform: uppercase;
     width: 100%;
     font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
     font-size: 12px;
@@ -62,6 +61,16 @@ h1 {
 .event.received {
     background-color:#4B946A;
     display:none;
+}
+
+
+#login-header {
+    text-align: center;
+}
+
+#login-header img {
+    width: 40%;
+    margin-bottom: 15px;
 }
 
 @keyframes fade {
