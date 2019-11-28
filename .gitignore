@@ -267,6 +267,7 @@ bin/*
 !/plugins/fetch.json
 plugins/*
 platforms/*
+simulation/*
 
 node_modules
 www/index.js
