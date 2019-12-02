@@ -42,20 +42,12 @@
         //listeningElement.setAttribute('style', 'display:none;');
         //receivedElement.setAttribute('style', 'display:block;');
 
+        //TODO
+        //Enable when finished
         App.Auth.GetAuthTokenPromise(function (token) {
             if (token != "" && token != undefined){
                 $('#choose-action-div').show();
                 $('#logout-div').show();
-
-                App.Api.MakeAuthedRequest("umbraco/api/Imkcontentapi/hello",
-                    "GET",
-                    null,
-                    function(msg) {
-                        //console.log(msg);
-                    },
-                    function(msg) {
-                        //console.log(msg);
-                    });
             }
             else {                
                 $("#login-div").show();
@@ -66,6 +58,10 @@
             App.Auth.Logout();
         });
 
+        //TODO
+        //REMOVE
+        //$("#blog-form .form-group").show()
+        //$("#blog-submit-button").show()
 
         $('#login-submit').on("click", function (event) {
             event.preventDefault();            
@@ -80,15 +76,25 @@
             
         });
 
+        $('#test-submit').on("click", function (event) {
+            event.preventDefault();
+
+            App.Api.MakeAuthedRequest("umbraco/api/Imkcontentapi/hello", "GET", null, function (msg) {
+                console.log(msg);
+            }, function (msg) {
+                console.log(msg);
+            })
+        });
+
         $('#create-post-button').on("click", function () {
-            $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
-                $('#blog-div').animate({ width: 'toggle' }, 350, "linear");
+            $("#choose-action-div").animate(animateHideOptions, 350, "linear", function () {
+                $('#blog-div').animate(animateShowOptions, 350, "linear");
             });
         });
 
         $('#create-event-button').on("click", function () {
-            $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
-                $('#event-div').animate({ width: 'toggle' }, 350, "linear");
+            $("#choose-action-div").animate(animateHideOptions, 350, "linear", function () {
+                $('#event-div').animate(animateShowOptions, 350, "linear");
             });
         });
 
