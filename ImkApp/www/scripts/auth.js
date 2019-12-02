@@ -74,7 +74,7 @@ App.Auth = {
     },
     __buffering: false,
     __callBackBuffer: [],
-    GetAuthTokenPromise: function (callback, skipAccessToken) {         
+    GetAuthTokenPromise: function (callback, skipAccessToken) {
         var at = App.Utils.GetSession('imk_user') != undefined
             ? JSON.parse(App.Utils.GetSession('imk_user')).access_token
             : undefined;

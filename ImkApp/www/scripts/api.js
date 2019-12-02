@@ -31,7 +31,7 @@ App.Api = {
                 if (error.status == 401)
                     App.Utils.HandleUnauthorized();
 
-                return onError;
+                onError();
             });
         });
     },

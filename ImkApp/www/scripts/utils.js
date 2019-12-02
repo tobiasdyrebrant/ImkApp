@@ -97,8 +97,7 @@ App.Utils = {
         return o;
     },
     HandleUnauthorized: function () {
-        $('.container').hide();
-        $("#login-div").show();        
+        App.Auth.Logout();
     },
     GenerateRandomString: function () {
         function randomMax8HexChars() {

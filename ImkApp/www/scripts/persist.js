@@ -1,6 +1,6 @@
 ﻿var App = App || {};
 App.Persist = {
-    Blog: function (serializedForm) {
+    Blog: function (serializedForm, success, error) {
         var form = new FormData();
         form.append("", App.Utils.DataURItoBlob(serializedForm["blog-camera"]), App.Utils.GenerateRandomString() + ".jpeg");
         form.append("Heading", serializedForm["blog-heading"]);
@@ -19,12 +19,12 @@ App.Persist = {
         };
 
         App.Api.MakeAuthedRequest("umbraco/api/imkcontentapi/createblog", "POST", null, function () {
-            console.log("success woop woop");
-        }, function (error) {
-            console.log(error);
+            success();
+        }, function () {
+            error();
         }, options);
     },
-    Event: function (serializedForm) {
+    Event: function (serializedForm, success, error) {
         var form = new FormData();
         form.append("", App.Utils.DataURItoBlob(serializedForm["event-camera"]), App.Utils.GenerateRandomString() + ".jpeg");
         form.append("Heading", serializedForm["event-heading"]);
@@ -43,9 +43,9 @@ App.Persist = {
         };
 
         App.Api.MakeAuthedRequest("umbraco/api/imkcontentapi/createevent", "POST", null, function () {
-            console.log("success woop woop");
-        }, function (error) {
-            console.log(error);
+            success();
+        }, function () {
+            error();
         }, options);
 
 
