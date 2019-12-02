@@ -87,14 +87,14 @@
         });
 
         $('#create-post-button').on("click", function () {
-            $("#choose-action-div").animate(animateHideOptions, 350, "linear", function () {
-                $('#blog-div').animate(animateShowOptions, 350, "linear");
+            $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
+                $('#blog-div').animate({ width: 'toggle' }, 350, "linear");
             });
         });
 
         $('#create-event-button').on("click", function () {
-            $("#choose-action-div").animate(animateHideOptions, 350, "linear", function () {
-                $('#event-div').animate(animateShowOptions, 350, "linear");
+            $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
+                $('#event-div').animate({ width: 'toggle' }, 350, "linear");
             });
         });
 
