@@ -64,7 +64,7 @@
         //$("#blog-submit-button").show()
 
         $('#login-submit').on("click", function (event) {
-            event.preventDefault();            
+            event.preventDefault();                        
             App.Auth.Login($('#login-form'), function (msg) {                
                 $("#login-div").animate(animateHideOptions, 350, "linear", function () {
                     $('#choose-action-div').animate(animateShowOptions, 350, "linear");
@@ -104,6 +104,7 @@
         $('#blog-camera-get-existing-button').on("click", function () {
             var options = {
                 destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
             }     
 
             navigator.camera.getPicture(function (imageUri) {
@@ -224,6 +225,7 @@
         $('#event-camera-get-existing-button').on("click", function () {
             var options = {
                 destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
             }
 
             navigator.camera.getPicture(function (imageUri) {
