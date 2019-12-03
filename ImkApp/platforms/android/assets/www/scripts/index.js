@@ -21,7 +21,7 @@
 
         var datePickerOptions = {
             date: new Date(),
-            mode: 'date',
+            mode: 'datetime',
             androidTheme: 5
         }
 
@@ -33,6 +33,8 @@
             alert('Error: ' + error);
         }
 
+        //TODO
+        //Behöver ordna till så att denna först anropas på datum och sen på tid som sedan sparas i fältet.
         datePicker.show(datePickerOptions, onSuccess, onError);
 
         $('#error-retry-button').on("click",
