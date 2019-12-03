@@ -19,6 +19,24 @@
             height: "toggle"
         }
 
+        var datePickerOptions = {
+            date: new Date(),
+            mode: 'date',
+            androidTheme: 5
+        }
+
+        function onSuccess(date) {
+            alert('Selected date: ' + date);
+        }
+
+        function onError(error) { // Android only
+            alert('Error: ' + error);
+        }
+
+        //TODO
+        //Behöver ordna till så att denna först anropas på datum och sen på tid som sedan sparas i fältet.
+        datePicker.show(datePickerOptions, onSuccess, onError);
+
         $('#error-retry-button').on("click",
             function () {                
                 window.location.reload();

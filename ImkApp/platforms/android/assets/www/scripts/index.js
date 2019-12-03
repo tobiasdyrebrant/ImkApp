@@ -19,6 +19,22 @@
             height: "toggle"
         }
 
+        var datePickerOptions = {
+            date: new Date(),
+            mode: 'date',
+            androidTheme: 5
+        }
+
+        function onSuccess(date) {
+            alert('Selected date: ' + date);
+        }
+
+        function onError(error) { // Android only
+            alert('Error: ' + error);
+        }
+
+        datePicker.show(datePickerOptions, onSuccess, onError);
+
         $('#error-retry-button').on("click",
             function () {                
                 window.location.reload();
