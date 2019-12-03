@@ -24,7 +24,7 @@
             <!-- Login div -->
             <div id="login-div" class="col-12" style="display: none">
                 <div id="login-header">
-                    <img src="images/imk_logo.png"/>
+                    <img src="images/imk_logo.png" />
                     <h4>
                         Välkommen till IMKorebro admin
                     </h4>
@@ -43,10 +43,10 @@
                     </div>
                 </form>
                 <!--<form class="col-12">
-                    <div class="form-group">
-                        <button id="test-submit" style="width: 100%" class="btn btn-success">Test Hello!</button>
-                    </div>
-                </form>-->
+            <div class="form-group">
+                <button id="test-submit" style="width: 100%" class="btn btn-success">Test Hello!</button>
+            </div>
+        </form>-->
             </div>
 
             <!-- Choose action div -->
@@ -57,7 +57,7 @@
                     <button style="width: 100%" class="btn btn-success" id="create-event-button">Nytt evenemang</button>
                 </div>
             </div>
-            
+
             <!-- Blogs div -->
             <div id="blog-div" class="col-12" style="display: none">
                 <form id="blog-form">
@@ -65,7 +65,7 @@
                         <h4 class="m-b-30 text-center">
                             Vill du lägga till en bild?
                         </h4>
-                        
+
                         <button type="button" class="btn btn-success m-b-15" id="blog-camera-take-new-button">Ta en ny bild</button>
                         <button type="button" class="btn btn-success m-b-15" id="blog-camera-get-existing-button">Välj en bild</button>
                         <button type="button" class="btn btn-success m-b-15" id="blog-camera-no-image-button">Ingen bild</button>
@@ -113,11 +113,11 @@
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
 
-                    <button type="button" style="width: 100%; display: none" class="btn btn-success" id="blog-next-button" >Nästa</button>
+                    <button type="button" style="width: 100%; display: none" class="btn btn-success" id="blog-next-button">Nästa</button>
                     <button type="button" style="width: 100%; display: none" class="btn btn-success" id="blog-submit-button">Skicka</button>
                 </form>
             </div>
-            
+
             <!-- Events div-->
             <div id="event-div" class="col-12" style="display: none">
                 <form id="event-form">
@@ -132,7 +132,7 @@
 
                         <input type="text" class="form-control" id="event-camera" name="event-camera" style="display:none">
                     </div>
-                    <div class="form-group" style="display: none"  data-value-element="event-heading">
+                    <div class="form-group" style="display: none" data-value-element="event-heading">
                         <label for="event-heading">Rubrik</label>
                         <input type="text" class="form-control" id="event-heading" name="event-heading" placeholder="Skriv rubrik" value="Test av rubrik">
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
@@ -173,10 +173,10 @@
                     <button type="button" style="display: none" class="btn btn-success" id="event-submit-button">Skicka</button>
                 </form>
             </div>
-            
+
             <!-- Success div -->
             <div id="success-div" class="col-12" style="display: none">
-                <h4 style="display:none" id="success-div-text-blog"> 
+                <h4 style="display:none" id="success-div-text-blog">
                     Lycka! Inlägget har nu skickats.
                 </h4>
                 <h4 id="success-div-text-event" style="display: none">
@@ -193,8 +193,10 @@
                 <button type="button" style="width: 100%;" class="btn btn-success" id="error-retry-button">Försök igen</button>
             </div>
             
-            <div class="col-12" id="logout-div" style="display: none">
-                <button style="width: 100%" class="btn btn-success" id="logout">Logga ut</button>
+            <div class="col-12">
+                <button style="width: 100%; display: none" class="btn btn-success" id="cancel">Avbryt</button>
+
+                <button style="width: 100%; margin-top: 15px; display: none" class="btn btn-success" id="logout">Logga ut</button>
             </div>
         </div>
     </div>

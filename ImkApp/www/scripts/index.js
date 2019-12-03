@@ -20,8 +20,7 @@
         }
 
         $('#error-retry-button').on("click",
-            function () {
-                console.log("wtf");
+            function () {                
                 window.location.reload();
             });
 
@@ -29,6 +28,10 @@
             function() {
                 window.location.reload();
             });
+
+        $('#cancel').on("click", function () {
+            window.location.reload();
+        })
 
 
         // Handle the Cordova pause and resume events
@@ -47,7 +50,7 @@
         App.Auth.GetAuthTokenPromise(function (token) {
             if (token != "" && token != undefined){
                 $('#choose-action-div').show();
-                $('#logout-div').show();
+                $('#logout').show();
             }
             else {                
                 $("#login-div").show();
@@ -68,6 +71,7 @@
             App.Auth.Login($('#login-form'), function (msg) {                
                 $("#login-div").animate(animateHideOptions, 350, "linear", function () {
                     $('#choose-action-div').animate(animateShowOptions, 350, "linear");
+                    $("#logout").show();
                 });
             }, function (msg) {
                 console.log(msg);
@@ -87,14 +91,16 @@
         });
 
         $('#create-post-button').on("click", function () {
-            $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
-                $('#blog-div').animate({ width: 'toggle' }, 350, "linear");
+            $("#choose-action-div").animate(animateHideOptions, 350, "linear", function () {
+                $('#blog-div').animate(animateShowOptions, 350, "linear");
+                $('#cancel').show();
             });
         });
 
         $('#create-event-button').on("click", function () {
-            $("#choose-action-div").animate({ width: 'toggle' }, 350, "linear", function () {
-                $('#event-div').animate({ width: 'toggle' }, 350, "linear");
+            $("#choose-action-div").animate(animateHideOptions, 350, "linear", function () {
+                $('#event-div').animate(animateShowOptions, 350, "linear");
+                $('#cancel').show();
             });
         });
 
