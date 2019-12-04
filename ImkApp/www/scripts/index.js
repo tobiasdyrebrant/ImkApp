@@ -22,19 +22,9 @@
         var datePickerOptions = {
             date: new Date(),
             mode: 'datetime',
+            is24Hour: true,
             androidTheme: 5
         }
-
-        function onSuccess(date) {
-            alert('Selected date: ' + date);
-        }
-
-        function onError(error) { // Android only
-            alert('Error: ' + error);
-        }
-
-        //TODO Denna behöver anropas när klickar på fältet
-        datePicker.show(datePickerOptions, onSuccess, onError);
 
         $('#error-retry-button').on("click",
             function () {                
@@ -51,6 +41,7 @@
         })
 
 
+
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
@@ -62,26 +53,27 @@
         //listeningElement.setAttribute('style', 'display:none;');
         //receivedElement.setAttribute('style', 'display:block;');
 
-        //TODO
-        //Enable when finished
         App.Auth.GetAuthTokenPromise(function (token) {
-            if (token != "" && token != undefined){
+            if (token != "" && token != undefined) {
+                //Attempt handshake to validate token.
+                App.Api.MakeAuthedRequest("umbraco/api/Imkcontentapi/hello", "GET", null, function (msg) {
+                    //console.log(msg);
+                }, function (msg) {
+                    //console.log(msg);
+                });
+
                 $('#choose-action-div').show();
-                $('#logout').show();
+                $('#logout').show();                
             }
-            else {                
+            else {                          
+
                 $("#login-div").show();
             }
         });
 
         $('#logout').on("click", function() {
             App.Auth.Logout();
-        });
-
-        //TODO
-        //REMOVE
-        //$("#blog-form .form-group").show()
-        //$("#blog-submit-button").show()
+        });        
 
         $('#login-submit').on("click", function (event) {
             event.preventDefault();                        
@@ -91,20 +83,10 @@
                     $("#logout").show();
                 });
             }, function (msg) {
-                console.log(msg);
+                //console.log(msg);
             });
 
             
-        });
-
-        $('#test-submit').on("click", function (event) {
-            event.preventDefault();
-
-            App.Api.MakeAuthedRequest("umbraco/api/Imkcontentapi/hello", "GET", null, function (msg) {
-                console.log(msg);
-            }, function (msg) {
-                console.log(msg);
-            })
         });
 
         $('#create-post-button').on("click", function () {
@@ -157,7 +139,7 @@
                 $('#blog-camera').val(imageUri);
                 $('#blog-next-button').click();
             }, function cameraError(error) {
-                console.log("Unable to obtain picture: " + error, "app");
+                //console.log("Unable to obtain picture: " + error, "app");
 
             }, options);
         });
@@ -240,7 +222,7 @@
                 $('#event-next-button').click();
 
             }, function cameraError(error) {
-                console.log("Unable to obtain picture: " + error, "app");
+                //console.log("Unable to obtain picture: " + error, "app");
 
             }, options);
         });
@@ -263,6 +245,22 @@
         $('#event-camera-no-image-button').on("click", function () {
             $('#event-next-button').click();
         });
+
+        function datePickerSuccess(date) {            
+            $('#event-startdate').val(moment(date).format("YYYY-MM-DD HH:mm"));
+        }
+
+        function datePickerError(error) { // Android only
+            console.log(error);
+        }
+
+
+        $('#event-startdate').on("click", function () {
+            datePicker.show(datePickerOptions, datePickerSuccess, datePickerError);
+        })
+
+        //TODO Denna behöver anropas när klickar på fältet
+        //datePicker.show(datePickerOptions, onSuccess, onError);
 
 
         var lockNextClickEvent = false;
