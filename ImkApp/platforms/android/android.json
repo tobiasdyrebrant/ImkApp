@@ -22,7 +22,7 @@
                         },
                         {
                             "xml": "<feature name=\"CookieManagementPlugin\"><param name=\"android-package\" value=\"cordovaPluginCookieManager.CookieManagementPlugin\" /></feature>",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }

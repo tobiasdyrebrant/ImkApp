@@ -92,6 +92,6 @@
   <engine name="ios" spec="4.2.0" />
   <engine name="windows" spec="4.4.2" />
   <plugin name="cordova-plugin-camera" spec="^2.4.1" />
-  <plugin name="cordova-plugin-datepicker" spec="~0.9.3" />
+  <plugin name="cordova-plugin-datepicker" spec="~0.9.3" />  
   <plugin name="cordova-plugin-cookie-manager" spec="~0.0.1" src="https://github.com/LeBodro/cordova-plugin-cookie-manager" />
 </widget>

@@ -97,7 +97,16 @@ App.Utils = {
         return o;
     },
     HandleUnauthorized: function () {
-        App.Auth.Logout();
+        App.Utils.RemoveSession('imk_user');
+        App.Auth.GetAuthTokenPromise(function (token) {
+            if (token != "" && token != undefined) {
+                window.location.reload();                
+            }
+            else {
+                App.Auth.Logout();                
+            }
+        });
+        
     },
     GenerateRandomString: function () {
         function randomMax8HexChars() {
