@@ -26,7 +26,16 @@
     "cordova-plugin-datepicker": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-datepicker"
+            "id": "cordova-plugin-datepicker@~0.9.3"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-cookie-manager": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/LeBodro/cordova-plugin-cookie-manager",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}

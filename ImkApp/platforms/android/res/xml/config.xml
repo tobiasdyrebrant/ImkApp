@@ -10,6 +10,9 @@
     <feature name="DatePickerPlugin">
         <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin" />
     </feature>
+    <feature name="CookieManagementPlugin">
+        <param name="android-package" value="cordovaPluginCookieManager.CookieManagementPlugin" />
+    </feature>
     <name>ImkApp</name>
     <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, and the Windows Universal Platform.</description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">Your name here</author>

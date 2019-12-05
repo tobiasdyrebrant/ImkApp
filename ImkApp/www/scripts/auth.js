@@ -18,6 +18,8 @@ App.Auth = {
                     App.Auth.SetAuthToken(data['access_token']);
                     if (data['refresh_token']) { App.Utils.SetLocal('refresh_token', data['refresh_token'], true); }
                     else { App.Utils.RemoveLocal('refresh_token'); }
+
+                    window.cordova.plugins.CookieManagementPlugin.flush();
                     //TODO
                     //Get user information?
 
@@ -50,6 +52,7 @@ App.Auth = {
     Logout: function () {
         App.Utils.RemoveSession('imk_user');
         App.Utils.RemoveLocal('refresh_token');
+        window.cordova.plugins.CookieManagementPlugin.flush();
         window.location.reload(true);
     },
     SetAuthToken: function (token) {

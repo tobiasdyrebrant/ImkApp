@@ -39,6 +39,14 @@ module.exports = [
         "clobbers": [
             "datePicker"
         ]
+    },
+    {
+        "id": "cordova-plugin-cookie-manager.CookieManagementPlugin",
+        "file": "plugins/cordova-plugin-cookie-manager/www/CookieManagementPlugin.js",
+        "pluginId": "cordova-plugin-cookie-manager",
+        "clobbers": [
+            "cordova.plugins.CookieManagementPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -47,7 +55,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-compat": "1.2.0",
     "cordova-plugin-camera": "2.4.1",
-    "cordova-plugin-datepicker": "0.9.3"
+    "cordova-plugin-datepicker": "0.9.3",
+    "cordova-plugin-cookie-manager": "0.0.1"
 };
 // BOTTOM OF METADATA
 });

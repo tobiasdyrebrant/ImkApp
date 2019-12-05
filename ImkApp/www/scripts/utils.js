@@ -35,7 +35,7 @@ App.Utils = {
         if (Modernizr.localstorage)            
             window.localStorage.setItem(key, value);
         else
-            App.Utils .SetCookie(key, value, 3600, '/');
+            App.Utils.SetCookie(key, value, 3600, '/');
     },
     GetLocal: function (key, decode) {
         if (Modernizr.localstorage) {
