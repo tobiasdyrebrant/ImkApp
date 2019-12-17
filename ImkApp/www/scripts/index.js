@@ -106,6 +106,12 @@
 
         //Blog-functionality
 
+        var nextAfterCameraBlog = function() {
+            $('#blog-next-button').click();
+            $('#blog-next-button').show();
+            $('#blog-previous-button').show();
+        }
+
         $('#blog-camera-get-existing-button').on("click", function () {
             var options = {
                 destinationType: Camera.DestinationType.DATA_URL,
@@ -114,7 +120,7 @@
 
             navigator.camera.getPicture(function (imageUri) {
                 $('#blog-camera').val(imageUri);
-                $('#blog-next-button').click();
+                nextAfterCameraBlog();
             }, function () {
                 //TODO
                 //Do something?                
@@ -137,7 +143,7 @@
 
             navigator.camera.getPicture(function cameraSuccess(imageUri) {
                 $('#blog-camera').val(imageUri);
-                $('#blog-next-button').click();
+                nextAfterCameraBlog();
             }, function cameraError(error) {
                 //console.log("Unable to obtain picture: " + error, "app");
 
@@ -146,8 +152,9 @@
 
 
         $('#blog-camera-no-image-button').on("click",
-            function() {
-                $('#blog-next-button').click();
+            function () {
+                $('#blog-camera').val("");
+                nextAfterCameraBlog();
             });
 
         var lockNextClickBlog = false;
@@ -175,7 +182,6 @@
                         });
                     }
 
-                    $('#blog-next-button').show();
 
                     var nextElement = visibleElement.next();
 
@@ -187,6 +193,44 @@
                 }
             }
         });
+
+        var lockPreviousClickBlog = false;
+        $('#blog-previous-button').on("click",
+            function(event) {
+                event.preventDefault();
+                if (!lockPreviousClickBlog) {
+                    lockPreviousClickBlog = true;
+
+                    var visibleElement = $('#blog-form').find("div:visible");
+
+                    if (visibleElement.data("last-item")) {
+                        $("#blog-next-button").animate(animateShowOptions, 350, "linear");
+
+                        $('#blog-submit-button').hide();
+                    }
+
+                    var previousElement = visibleElement.prev();
+
+                    if (previousElement.data("first-item") == true) {
+                        $('#blog-next-button').hide();
+                        $('#blog-previous-button').hide();
+                    }
+
+                    visibleElement.animate(animateHideOptions,
+                        350,
+                        "linear",
+                        function() {
+                            previousElement.animate(animateShowOptions,
+                                350,
+                                "linear",
+                                function() {
+                                    lockPreviousClickBlog = false;
+                                });
+                        });
+                    
+                }
+            });
+
 
         $('#blog-submit-button').on("click",
             function(event) {
@@ -204,6 +248,13 @@
 
         //Event-functionality
 
+        var nextAfterCameraEvent = function() {
+            $('#event-next-button').click();
+            $('#event-next-button').show();
+            $('#event-previous-button').show();
+        }
+
+
         $('#event-camera-take-new-button').on("click", function () {
             var options = {
                 // Some common settings are 20, 50, and 100
@@ -219,7 +270,7 @@
 
             navigator.camera.getPicture(function cameraSuccess(imageUri) {
                 $('#event-camera').val(imageUri);
-                $('#event-next-button').click();
+                nextAfterCameraEvent();
 
             }, function cameraError(error) {
                 //console.log("Unable to obtain picture: " + error, "app");
@@ -235,7 +286,7 @@
 
             navigator.camera.getPicture(function (imageUri) {
                 $('#event-camera').val(imageUri);
-                $('#event-next-button').click();
+                nextAfterCameraEvent();
             }, function () {
                 //TODO
                 //Do something?                
@@ -243,7 +294,8 @@
         });
 
         $('#event-camera-no-image-button').on("click", function () {
-            $('#event-next-button').click();
+            $('#event-camera').val("");
+            nextAfterCameraEvent();
         });
 
         function datePickerSuccess(date) {            
@@ -255,12 +307,10 @@
         }
 
 
-        $('#event-startdate').on("click", function () {
-            datePicker.show(datePickerOptions, datePickerSuccess, datePickerError);
-        })
-
-        //TODO Denna behöver anropas när klickar på fältet
-        //datePicker.show(datePickerOptions, onSuccess, onError);
+        $('#event-startdate').on("click",
+            function() {
+                datePicker.show(datePickerOptions, datePickerSuccess, datePickerError);
+            });
 
 
         var lockNextClickEvent = false;
@@ -297,6 +347,44 @@
                 }
             }
         });
+
+        var lockPreviousClickEvent = false;
+        $('#event-previous-button').on("click",
+            function(event) {
+                event.preventDefault();
+                if (!lockPreviousClickEvent) {
+                    lockPreviousClickEvent = true;
+
+                    var visibleElement = $('#event-form').find("div:visible");
+
+                    if (visibleElement.data("last-item")) {
+                        $("#event-next-button").animate(animateShowOptions, 350, "linear");
+
+                        $('#event-submit-button').hide();
+                    }
+
+                    var previousElement = visibleElement.prev();
+
+                    if (previousElement.data("first-item") == true) {
+                        $('#event-next-button').hide();
+                        $('#event-previous-button').hide();
+                    }
+
+                    visibleElement.animate(animateHideOptions,
+                        350,
+                        "linear",
+                        function() {
+                            previousElement.animate(animateShowOptions,
+                                350,
+                                "linear",
+                                function() {
+                                    lockPreviousClickEvent = false;
+                                });
+                        });
+
+                }
+            });
+
 
 
         $('#event-submit-button').on("click",

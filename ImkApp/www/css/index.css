@@ -111,3 +111,7 @@ h1 {
 .errorLabel {
     color: darkred;
 }
+
+#blog-next-button, #blog-submit-button, #event-next-button, #event-submit-button {
+    margin-bottom: 15px;
+}

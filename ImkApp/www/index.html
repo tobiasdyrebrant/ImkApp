@@ -61,7 +61,7 @@
             <!-- Blogs div -->
             <div id="blog-div" class="col-12" style="display: none">
                 <form id="blog-form">
-                    <div class="form-group" data-value-element="blog-camera" data-possibly-empty="true">
+                    <div class="form-group" data-value-element="blog-camera" data-possibly-empty="true" data-first-item="true">
                         <h4 class="m-b-30 text-center">
                             Vill du lägga till en bild?
                         </h4>
@@ -107,7 +107,7 @@
                         <textarea type="text" class="form-control" id="blog-preamble" name="blog-preamble" placeholder="Skriv ingress" rows="2">Test av ingress</textarea>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="blog-text">
+                    <div class="form-group" style="display: none" data-value-element="blog-text" data-last-item="true">
                         <label for="blog-text">Text</label>
                         <textarea type="text" class="form-control" id="blog-text" name="blog-text" placeholder="Skriv text" rows="4">Test av text</textarea>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
@@ -115,13 +115,14 @@
 
                     <button type="button" style="width: 100%; display: none" class="btn btn-success" id="blog-next-button">Nästa</button>
                     <button type="button" style="width: 100%; display: none" class="btn btn-success" id="blog-submit-button">Skicka</button>
+                    <button type="button" style="width: 100%; display: none" class="btn btn-success" id="blog-previous-button">Tillbaka</button>
                 </form>
             </div>
 
             <!-- Events div-->
             <div id="event-div" class="col-12" style="display: none">
                 <form id="event-form">
-                    <div class="form-group" data-value-element="event-camera" data-possibly-empty="true">
+                    <div class="form-group" data-value-element="event-camera" data-possibly-empty="true" data-first-item="true">
                         <h4 class="m-b-30 text-center">
                             Vill du lägga till en bild?
                         </h4>
@@ -162,7 +163,7 @@
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
 
-                    <div class="form-group" style="display: none" data-value-element="event-startdate">
+                    <div class="form-group" style="display: none" data-value-element="event-startdate" data-last-item="true">
                         <label for="event-startdate">Startdatum</label>
                         <input type="text" class="form-control" id="event-startdate" name="event-startdate" placeholder="Skriv datum" rows="4" value="2018-10-11 05:50">
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
@@ -171,6 +172,7 @@
 
                     <button type="button" style="display: none" class="btn btn-success" id="event-next-button">Nästa</button>
                     <button type="button" style="display: none" class="btn btn-success" id="event-submit-button">Skicka</button>
+                    <button type="button" style="display: none" class="btn btn-success" id="event-previous-button">Tillbaka</button>
                 </form>
             </div>
 
