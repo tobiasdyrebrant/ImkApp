@@ -185,6 +185,8 @@
 
                     var nextElement = visibleElement.next();
 
+                    $("#blog-div .step-counter h4").text($(nextElement[0]).data("step"));
+
                     visibleElement.animate(animateHideOptions, 350, "linear", function () {
                         nextElement.animate(animateShowOptions, 350, "linear", function () {
                             lockNextClickBlog = false;
@@ -210,6 +212,8 @@
                     }
 
                     var previousElement = visibleElement.prev();
+
+                    $("#blog-div .step-counter h4").text($(previousElement[0]).data("step"));
 
                     if (previousElement.data("first-item") == true) {
                         $('#blog-next-button').hide();
@@ -338,6 +342,7 @@
                     $('#event-next-button').show();
 
                     var nextElement = visibleElement.next();
+                    $("#event-div .step-counter h4").text($(nextElement[0]).data("step"));
 
                     visibleElement.animate(animateHideOptions, 350, "linear", function () {
                         nextElement.animate(animateShowOptions, 350, "linear", function () {
@@ -364,6 +369,7 @@
                     }
 
                     var previousElement = visibleElement.prev();
+                    $("#event-div .step-counter h4").text($(previousElement[0]).data("step"));
 
                     if (previousElement.data("first-item") == true) {
                         $('#event-next-button').hide();

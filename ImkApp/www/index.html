@@ -60,8 +60,11 @@
 
             <!-- Blogs div -->
             <div id="blog-div" class="col-12" style="display: none">
+                <div class="step-counter">
+                    <h4 class="m-b-20 text-center">1/6</h4>
+                </div>
                 <form id="blog-form">
-                    <div class="form-group" data-value-element="blog-camera" data-possibly-empty="true" data-first-item="true">
+                    <div class="form-group" data-value-element="blog-camera" data-possibly-empty="true" data-first-item="true" data-step="1/6">
                         <h4 class="m-b-30 text-center">
                             Vill du lägga till en bild?
                         </h4>
@@ -72,12 +75,12 @@
 
                         <input type="text" class="form-control" id="blog-camera" name="blog-camera" style="display: none">
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="blog-heading">
+                    <div class="form-group" style="display: none" data-value-element="blog-heading" data-step="2/6">
                         <label for="blog-heading">Rubrik</label>
                         <input type="text" class="form-control" id="blog-heading" name="blog-heading" placeholder="Skriv rubrik" value="Test av rubrik">
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="blog-color">
+                    <div class="form-group" style="display: none" data-value-element="blog-color" data-step="3/6">
                         <label for="blog-color">Bakgrundsfärg</label>
                         <select class="form-control" id="blog-color" name="blog-color">
                             <option value="" disabled selected>Välj bakgrundsfärg</option>
@@ -91,7 +94,7 @@
                         </select>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="blog-category">
+                    <div class="form-group" style="display: none" data-value-element="blog-category" data-step="4/6">
                         <label for="blog-category">Kategori</label>
                         <select class="form-control" id="blog-category" name="blog-category">
                             <option value="" disabled>Välj kategori</option>
@@ -102,12 +105,12 @@
                         </select>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="blog-preamble" data-second-last="true">
+                    <div class="form-group" style="display: none" data-value-element="blog-preamble" data-second-last="true" data-step="5/6">
                         <label for="blog-preamble">Ingress</label>
                         <textarea type="text" class="form-control" id="blog-preamble" name="blog-preamble" placeholder="Skriv ingress" rows="2">Test av ingress</textarea>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="blog-text" data-last-item="true">
+                    <div class="form-group" style="display: none" data-value-element="blog-text" data-last-item="true" data-step="6/6">
                         <label for="blog-text">Text</label>
                         <textarea type="text" class="form-control" id="blog-text" name="blog-text" placeholder="Skriv text" rows="4">Test av text</textarea>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
@@ -121,8 +124,11 @@
 
             <!-- Events div-->
             <div id="event-div" class="col-12" style="display: none">
+                <div class="step-counter">
+                    <h4 class="m-b-20 text-center">1/6</h4>
+                </div>
                 <form id="event-form">
-                    <div class="form-group" data-value-element="event-camera" data-possibly-empty="true" data-first-item="true">
+                    <div class="form-group" data-value-element="event-camera" data-possibly-empty="true" data-first-item="true" data-step="1/6">
                         <h4 class="m-b-30 text-center">
                             Vill du lägga till en bild?
                         </h4>
@@ -131,39 +137,39 @@
                         <button type="button" class="btn btn-success m-b-15" id="event-camera-get-existing-button">Välj en bild</button>
                         <button type="button" class="btn btn-success m-b-15" id="event-camera-no-image-button">Ingen bild</button>
 
-                        <input type="text" class="form-control" id="event-camera" name="event-camera" style="display:none">
+                        <input type="text" class="form-control" id="event-camera" name="event-camera" style="display: none">
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="event-heading">
+                    <div class="form-group" style="display: none" data-value-element="event-heading" data-step="2/6">
                         <label for="event-heading">Rubrik</label>
                         <input type="text" class="form-control" id="event-heading" name="event-heading" placeholder="Skriv rubrik" value="Test av rubrik">
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="event-color">
+                    <div class="form-group" style="display: none" data-value-element="event-color" data-step="3/6">
                         <label for="event-color">Bakgrundsfärg</label>
                         <select class="form-control" id="event-color" name="event-color">
                             <option value="" disabled selected>Välj bakgrundsfärg</option>
-                            <option style="background-color:red" value="red" selected>Röd</option>
-                            <option style="background-color:pink" value="pink">Rosa</option>
-                            <option style="background-color:yellow" value="yellow">Gul</option>
-                            <option style="background-color:blue" value="blue">Blå</option>
-                            <option style="background-color:green" value="green">Grön</option>
-                            <option style="background-color:grey" value="grey">Grå</option>
-                            <option style="background-color:turquoise" value="turquoise">Turkos</option>
+                            <option style="background-color: red" value="red" selected>Röd</option>
+                            <option style="background-color: pink" value="pink">Rosa</option>
+                            <option style="background-color: yellow" value="yellow">Gul</option>
+                            <option style="background-color: blue" value="blue">Blå</option>
+                            <option style="background-color: green" value="green">Grön</option>
+                            <option style="background-color: grey" value="grey">Grå</option>
+                            <option style="background-color: turquoise" value="turquoise">Turkos</option>
                         </select>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="event-preamble">
+                    <div class="form-group" style="display: none" data-value-element="event-preamble" data-step="4/6">
                         <label for="event-preamble">Ingress</label>
                         <textarea type="text" class="form-control" id="event-preamble" name="event-preamble" placeholder="Skriv ingress" rows="2">Test av ingress</textarea>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
-                    <div class="form-group" style="display: none" data-value-element="event-text" data-second-last="true">
+                    <div class="form-group" style="display: none" data-value-element="event-text" data-second-last="true" data-step="5/6">
                         <label for="event-text">Text</label>
                         <textarea type="text" class="form-control" id="event-text" name="event-text" placeholder="Skriv text" rows="4">Test av text</textarea>
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
                     </div>
 
-                    <div class="form-group" style="display: none" data-value-element="event-startdate" data-last-item="true">
+                    <div class="form-group" style="display: none" data-value-element="event-startdate" data-last-item="true" data-step="6/6">
                         <label for="event-startdate">Startdatum</label>
                         <input type="text" class="form-control" id="event-startdate" name="event-startdate" placeholder="Skriv datum" rows="4" value="2018-10-11 05:50">
                         <label class="errorLabel" style="display: none">Kan ej vara tomt</label>
